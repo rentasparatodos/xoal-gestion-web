@@ -1,0 +1,18 @@
+
+rules_version = '2';
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // Permitir que cualquiera cree un documento en la colección 'contact-form'.
+    // Esto es seguro para un formulario de contacto público, ya que no se permite leer, actualizar o eliminar.
+    match /contact-form/{docId} {
+      allow create: if true;
+      allow read, update, delete: if false;
+    }
+
+    // Denegar el acceso a todas las demás colecciones por seguridad.
+    match /{document=**} {
+      allow read, write: if false;
+    }
+  }
+}

@@ -215,6 +215,31 @@
             grid-template-columns: 1fr;
         }
     }
+
+    #form-status {
+        margin-top: 1rem;
+        padding: 0.75rem;
+        border-radius: 8px;
+        text-align: center;
+        font-weight: 500;
+        opacity: 0;
+        transition: opacity 0.3s ease-in-out;
+        display: none; /* Hidden by default */
+    }
+
+    #form-status.success {
+        background-color: oklch(50% 0.15 140 / 0.2);
+        color: oklch(85% 0.15 140);
+        display: block;
+        opacity: 1;
+    }
+
+    #form-status.error {
+        background-color: oklch(50% 0.18 25 / 0.2);
+        color: oklch(85% 0.18 25);
+        display: block;
+        opacity: 1;
+    }
 }
 
 /* ========= Utilities Layer ========= */
